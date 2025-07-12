@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  line-height: 1.6; /* Consistent line-height */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif; /* Ensure headings also use Inter */
+}
+
+@layer base {
+  :root {
+    /* Light Theme - Custom Palette */
+    --background: 220 22% 97%; /* #F4F6F8 */
+    --foreground: 210 29% 23%; /* #2C3E50 */
+    --card: 0 0% 100%; 
+    --card-foreground: 210 29% 23%; 
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 29% 23%;
+    --primary: 221 66% 33%; /* #1E3A8A */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 22% 92%; /* Slightly darker than background */
+    --secondary-foreground: 210 29% 23%; 
+    --muted: 220 22% 88%; 
+    --muted-foreground: 210 15% 50%; 
+    --accent: 145 63% 47%;  /* #27AE60 Green */
+    --accent-foreground: 0 0% 100%; 
+    --destructive: 6 78% 58%; /* #E74C3C Red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 10% 85%; /* Soft border */
+    --input: 220 22% 96%; /* Slightly off-white inputs */
+    --ring: 221 66% 33%; /* Deep Blue */
+    --chart-1: var(--primary); /* Deep Blue */
+    --chart-2: 145 63% 47%; /* Green */
+    --chart-3: 6 78% 58%;  /* Red */
+    --chart-4: 220 22% 60%; /* Muted Blue */
+    --chart-5: 210 29% 23%; /* Dark Gray */
+    --radius: 0.8rem;
+    --sidebar-background: 220 22% 97%; 
+    --sidebar-foreground: 210 29% 23%;
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: 220 10% 80%; 
+    --sidebar-ring: var(--ring);
+  }
+
+  .dark {
+    /* Dark Theme - Custom Palette */
+    --background: 210 29% 15%; 
+    --foreground: 0 0% 100%; 
+    --card: 210 29% 18%; 
+    --card-foreground: 0 0% 100%;
+    --popover: 210 29% 18%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 221 66% 33%; /* #1E3A8A */
+    --primary-foreground: 0 0% 100%; 
+    --secondary: 210 29% 22%; 
+    --secondary-foreground: 0 0% 100%; 
+    --muted: 210 29% 22%;
+    --muted-foreground: 0 0% 80%;
+    --accent: 145 63% 47%; 
+    --accent-foreground: 0 0% 100%; 
+    --destructive: 6 78% 58%; 
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 29% 30%;
+    --input: 210 29% 20%;
+    --ring: 221 66% 33%; 
+    --chart-1: var(--primary);
+    --chart-2: 145 63% 47%; 
+    --chart-3: 6 78% 58%; 
+    --chart-4: 220 22% 40%; 
+    --chart-5: 0 0% 100%; 
+    --sidebar-background: 210 29% 15%; 
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: 210 29% 20%; 
+    --sidebar-ring: var(--ring);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+  .card-shadow {
+    box-shadow: 0 4px 10px -2px rgb(0 0 0 / 0.06), 0 2px 6px -3px rgb(0 0 0 / 0.04);
+    transition: box-shadow 0.2s ease-out;
+  }
+  .dark .card-shadow {
+    box-shadow: 0 4px 10px -2px rgb(0 0 0 / 0.18), 0 2px 6px -3px rgb(0 0 0 / 0.12);
+  }
+  /* Reduced hover shadow intensity for a flatter look */
+  .card-shadow:hover {
+    box-shadow: 0 5px 12px -2px rgb(0 0 0 / 0.08), 0 2px 7px -4px rgb(0 0 0 / 0.05);
+  }
+  .dark .card-shadow:hover {
+     box-shadow: 0 5px 12px -2px rgb(0 0 0 / 0.22), 0 2px 7px -4px rgb(0 0 0 / 0.18);
+  }
+
+  .header-shadow {
+     box-shadow: 0 1px 3px rgb(0 0 0 / 0.04);
+     border-bottom-width: 1px;
+  }
+  .dark .header-shadow {
+     box-shadow: 0 1px 3px rgb(0 0 0 / 0.20);
+  }
+}

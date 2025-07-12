@@ -1,0 +1,21 @@
+
+services:
+  - type: web
+    name: staticsdiary-app
+    env: node
+    region: oregon # You can change this to your preferred region
+    plan: free # Or your desired plan
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm run start"
+    healthCheckPath: "/"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Add any other environment variables your app needs here
+      # Example:
+      # - key: API_KEY
+      #   value: your_api_key_here
+      # - key: NEXT_PUBLIC_API_URL
+      #   sync: false # If you manage this through Render's dashboard
+    autoDeploy: yes # Set to no if you want to manage deploys manually
+    branch: main # Or your default deployment branch
